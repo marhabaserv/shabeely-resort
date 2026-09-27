@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabeely Resort | Sovereign Digital Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #081d15;
+            --card-dark: #0D2B20;
+            --accent-gold: #D4AF37;
+            --text-white: #FFFFFF;
+            --text-mint: #E0E8E4;
+            --border-tint: rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-mint);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(8, 29, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-tint);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-group h1 {
+            color: var(--text-white);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-group span {
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+        }
+
+        nav a {
+            color: var(--text-mint);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .btn-gold:hover {
+            background: #e5be48;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 5% 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h2 {
+            font-size: 2.8rem;
+            color: var(--text-white);
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: #b5c4bc;
+        }
+
+        /* Interactive Booking Box */
+        .booking-card {
+            background: var(--card-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-tint);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .booking-card h3 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-tint);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            background: #05140e;
+            border: 1px solid #164030;
+            color: var(--text-white);
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-gold);
+        }
+
+        /* Key Metrics Section */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            padding: 3rem 5%;
+            background: var(--card-dark);
+            border-y: 1px solid var(--border-tint);
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-item h4 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .metric-item p {
+            font-size: 0.8rem;
+            color: var(--text-mint);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Modules Section */
+        .modules-section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            color: var(--text-white);
+            font-size: 2rem;
+        }
+
+        .section-title p {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .module-card {
+            background: var(--card-dark);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #164030;
+            transition: 0.3s;
+        }
+
+        .module-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .module-card h4 {
+            color: var(--text-white);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .module-card p {
+            font-size: 0.9rem;
+            color: #b5c4bc;
+        }
+
+        /* Direct Treasury Analytics Mockup */
+        .treasury-panel {
+            margin: 3rem 5% 5rem;
+            padding: 3rem;
+            background: var(--card-dark);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .treasury-info h3 {
+            color: var(--text-white);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-display {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background: #05140e;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .stat-box h5 {
+            color: #8da498;
+            font-size: 0.8rem;
+        }
+
+        .stat-box span {
+            color: var(--text-white);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-tint);
+            font-size: 0.85rem;
+            color: #6b8276;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo-group">
+            <h1>SHABEELY RESORT</h1>
+            <span>Dine for Generations Flagship Portal</span>
+        </div>
+        <nav>
+            <a href="#overview" class="active">Overview</a>
+            <a href="#villas">51 Luxury Villas</a>
+            <a href="#airline">Ethiopian Airlines Sync</a>
+            <a href="#treasury">Ministry Treasury Portal</a>
+        </nav>
+        <a href="#booking" class="btn-gold">Launch Live Demo</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="overview">
+        <div class="hero-content">
+            <span class="hero-badge">Sovereign Regional Digital OS</span>
+            <h2>Integrated Hospitality & Airline Booking Ecosystem</h2>
+            <p>Connecting global visitors, high-level diplomatic summits, direct flight bundling via Ethiopian Airlines, and real-time regional treasury oversight across 385 hectares.</p>
+            <a href="#treasury" class="btn-gold" style="padding: 0.9rem 2rem;">Explore Sovereign Treasury Analytics</a>
+        </div>
+
+        <!-- Live Reservation Box -->
+        <div class="booking-card" id="booking">
+            <h3>Interactive Booking Module</h3>
+            <form onsubmit="event.preventDefault(); alert('Proposal Demo: Simulated API reservation dispatch to Ethiopian Airlines & Regional Treasury ledger!');">
+                <div class="form-group">
+                    <label>Select Villa / Summit Hall</label>
+                    <select>
+                        <option>Executive Diplomatic Villa (51 Keys)</option>
+                        <option>MICE International Summit Hall</option>
+                        <option>3-Restaurant Private Venue (400 Cap)</option>
+                        <option>Camel Sanctuary & Park Pass</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ethiopian Airlines API Sync</label>
+                    <select>
+                        <option>Bundle Direct Flight to Jigjiga Airport</option>
+                        <option>Resort Stay Only</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Guest Gateway Payment</label>
+                    <select>
+                        <option>Telebirr / CBE Birr Direct</option>
+                        <option>International Visa / Mastercard</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-gold" style="width: 100%; cursor: pointer;">Execute Integrated Reservation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Key Metrics Bar -->
+    <div class="metrics-bar">
+        <div class="metric-item">
+            <h4>385 ha</h4>
+            <p>Landmark Area</p>
+        </div>
+        <div class="metric-item">
+            <h4>51 Keys</h4>
+            <p>Luxury Villas</p>
+        </div>
+        <div class="metric-item">
+            <h4>400 Cap</h4>
+            <p>3 Dining Venues</p>
+        </div>
+        <div class="metric-item">
+            <h4>15.4 km</h4>
+            <p>Walkway Passes</p>
+        </div>
+        <div class="metric-item">
+            <h4>100%</h4>
+            <p>Local IT Capacity</p>
+        </div>
+    </div>
+
+    <!-- Core Modules Grid -->
+    <section class="modules-section">
+        <div class="section-title">
+            <p>Proposal Capabilities</p>
+            <h2>Strategic Core System Modules</h2>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <h4>51 Villa Keys Engine</h4>
+                <p>Real-time booking inventory, floorplans, and automated QR code digital pass dispatch sent directly via SMS and Email.</p>
+            </div>
+            <div class="module-card">
+                <h4>Ethiopian Airlines API</h4>
+                <p>One-stop bundle combining flight seating into Jigjiga Airport with automated VIP airport transfers and resort vouchers.</p>
+            </div>
+            <div class="module-card">
+                <h4>Attraction Passes</h4>
+                <p>Contactless barcode generation for 10,000-tree fruit park walks, camel sanctuary tours, and turnstile entrance logs.</p>
+            </div>
+            <div class="module-card">
+                <h4>MICE Diplomatic Engine</h4>
+                <p>Dynamic seating layout selector, AV/Translation booth bundling, and direct ministry institutional billing.</p>
+            </div>
+            <div class="module-card">
+                <h4>Tourist Marketing Hub</h4>
+                <p>Broadcasting cultural summit events, new resort expansions, and seasonal promotions to attract international tourists.</p>
+            </div>
+            <div class="module-card">
+                <h4>100% Local Sovereignty</h4>
+                <p>Zero third-party vendor lock-in. Full system source code handed over with training for local Somali Region IT graduates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Treasury Dashboard Panel -->
+    <section class="treasury-panel" id="treasury">
+        <div class="treasury-info">
+            <h3>Sovereign Governance & Revenue Ledger</h3>
+            <p>Automated real-time tax allocation and booking revenue routing directly to the Regional Finance Bureau.</p>
+        </div>
+        <div class="stats-display">
+            <div class="stat-box">
+                <h5>Daily Headcount Log</h5>
+                <span>1,240 Guests</span>
+            </div>
+            <div class="stat-box">
+                <h5>Regional Tax Settlement</h5>
+                <span>100% Automated</span>
+            </div>
+            <div class="stat-box">
+                <h5>Flight Bundle Sync</h5>
+                <span>Active API</span>
+            </div>
+            <div class="stat-box">
+                <h5>Data Compliance</h5>
+                <span>Sovereign Ledger</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        Shabeely Resort Digital Management & Reservation Platform | Jigjiga, Somali Region, Ethiopia
+    </footer>
+
+</body>
+</html>
